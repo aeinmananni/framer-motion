@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.linkStyle {
+  @apply text-pink-300 font-semibold text-lg;
+}
