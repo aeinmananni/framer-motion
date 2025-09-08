@@ -14,7 +14,6 @@ export default function Base() {
         handelNavigate1={() => navigate('/')}
         handelNavigate2={() => navigate('/toppings')}
         onChange={v => {
-          console.log(v);
           setOrder(prev => ({ ...prev, base: BASE_ITEMS[v as number]?.title }));
         }}
       />

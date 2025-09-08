@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ButtonMotion, ItemsMotion } from '../../components';
 import type { ItemsType } from '../../models';
-
+import { motion } from 'framer-motion';
 type LayoutProps = {
   title: string;
   items: ItemsType[];
@@ -24,9 +24,9 @@ export default function Layout({
   const classButtonMotion = 'p-1 rounded-full border border-pink-700 text-pink-700 w-1/4';
 
   return (
-    <div className="flex flex-col gap-3 w-1/4 h-max   ">
+    <div className="flex flex-col gap-3 w-1/3 h-max">
       <h1 className="text-xl text-pink-300 border-b p-2">{title}</h1>
-      <div className="flex flex-col gap-3 h-max w-full  overflow-y-auto">
+      <div className="flex flex-col gap-3 h-max w-full  overflow-y-auto overflow-x-hidden">
         {items.map(it => (
           <ItemsMotion
             onClick={() => {
@@ -47,7 +47,11 @@ export default function Layout({
           />
         ))}
         {(activeId > 0 || activeIds.length > 0) && (
-          <div className="w-full flex item-center gap-2">
+          <motion.div
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            className="w-full flex item-center gap-2 p-3"
+          >
             {handelNavigate1 && (
               <ButtonMotion onClick={handelNavigate1} className={classButtonMotion}>
                 Back
@@ -58,7 +62,7 @@ export default function Layout({
                 Next
               </ButtonMotion>
             )}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
