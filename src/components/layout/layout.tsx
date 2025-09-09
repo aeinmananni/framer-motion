@@ -24,7 +24,12 @@ export default function Layout({
   const classButtonMotion = 'p-1 rounded-full border border-pink-700 text-pink-700 w-1/4';
 
   return (
-    <div className="flex flex-col gap-3 w-1/3 h-max">
+    <motion.div
+      initial={{ x: '100%', opacity: 0.2 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ type: 'spring', stiffness: 140 }}
+      className="flex flex-col gap-3 w-1/3 h-max"
+    >
       <h1 className="text-xl text-pink-300 border-b p-2">{title}</h1>
       <div className="flex flex-col gap-3 h-max w-full  overflow-y-auto overflow-x-hidden">
         {items.map(it => (
@@ -50,6 +55,7 @@ export default function Layout({
           <motion.div
             initial={{ x: '-100%' }}
             animate={{ x: 0 }}
+            transition={{ type: 'spring', stiffness: 120 }}
             className="w-full flex item-center gap-2 p-3"
           >
             {handelNavigate1 && (
@@ -65,6 +71,6 @@ export default function Layout({
           </motion.div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

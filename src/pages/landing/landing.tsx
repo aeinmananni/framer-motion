@@ -12,10 +12,16 @@ import { motion } from 'framer-motion';
 export default function Landing() {
   const navigate = useNavigate();
   return (
-    <motion.div animate={{}} className="w-1/2  h-1/3 flex flex-col justify-around items-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1, duration: 2 }}
+      className="w-1/2  h-1/3 flex flex-col justify-around items-center"
+    >
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
         className=" text-pink-300  font-semibold text-2xl"
       >
         Wellcom To FramerMotion Pizza
