@@ -34,6 +34,8 @@ export default function Layout({
       <div className="flex flex-col gap-3 h-max w-full  overflow-y-auto overflow-x-hidden">
         {items.map(it => (
           <ItemsMotion
+            whileHover={{ x: 6 }}
+            transition={{ type: 'spring', stiffness: 600 }}
             onClick={() => {
               if (isMulti) {
                 if (!activeIds.includes(it.id)) {
