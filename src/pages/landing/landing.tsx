@@ -34,6 +34,20 @@ const ContainerVariants: Variants = {
   },
 };
 
+const ButtonVariants: Variants = {
+  visible: {
+    x: [0, -30, 30, 0],
+    transition: {
+      delay: 2,
+    },
+  },
+  hover: {
+    scale: 1.1,
+    textShadow: '0px 0px 8px rgb(255,255,255)',
+    boxShadow: '0px 0px 8px rgb(255,255,255)',
+  },
+};
+
 export default function Landing() {
   const navigate = useNavigate();
   return (
@@ -50,12 +64,9 @@ export default function Landing() {
         Wellcom To FramerMotion Pizza
       </motion.h1>
       <motion.button
+        variants={ButtonVariants}
         onClick={() => navigate('/base')}
-        whileHover={{
-          scale: 1.1,
-          textShadow: '0px 0px 8px rgb(255,255,255)',
-          boxShadow: '0px 0px 8px rgb(255,255,255)',
-        }}
+        whileHover={'hover'}
         className="border  border-pink-300 w-1/2 p-2 rounded-full text-lg text-pink-300 "
       >
         Create your Pizza
